@@ -10,6 +10,7 @@ const float g = 9.81;       // m/s^2
 const float a2 = pow(1.16, -7.0); // (Ra * kd)/(Km * es)
 const float a1 = pow(4.488, -12.0); // (Ra * b + Km^2)/(Km * es)
 const float kt = pow(1.726, -8.0); // constante de sustentação
+const float kd = pow(1.415, -10.0); // constante de arrasto
 // Quadcopter dimensions
 const float m = 30.0e-3;    // kg
 const float I_xx = 16.0e-6; // kg.m^2
