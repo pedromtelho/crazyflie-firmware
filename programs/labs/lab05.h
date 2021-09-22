@@ -1,5 +1,5 @@
-# include "mbed.h"
-# include "crazyflie.h"
+#include "mbed.h"
+#include "crazyflie.h"
 #include "parameters.h"
 // Define all motors as PWM objects
 PwmOut motor_1(MOTOR1);
@@ -18,6 +18,7 @@ float control_motor (float omega_r)
 {
     return a2*pow(omega_r, 2.0)+a1*omega_r;
 }
+
 
 // Converts total trust force (N) and torques (N.m) to angular velocities (rad/s)
 void mixer (float f_t, float tau_phi, float tau_theta, float tau_psi)
