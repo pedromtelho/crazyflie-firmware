@@ -17,7 +17,7 @@ void callback() { flag = true; }
 int main()
 {
     // Set references
-    float f_t = m*g;
+    float f_t = m*g*0.17;
     float phi_r = 0.0;
     float theta_r = 0.0;
     float psi_r = 0.0;
@@ -35,6 +35,7 @@ int main()
                 att_est.estimate();
                 att_cont.control(phi_r, theta_r, psi_r, att_est.phi, att_est.theta, att_est.psi, att_est.p, att_est.q, att_est.r);
                 mixer.actuate(f_t, 0.0, att_cont.tau_theta, 0.0);
+
             }
         }
     // Disarm motors and end program
