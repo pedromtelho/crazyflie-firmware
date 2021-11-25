@@ -54,6 +54,13 @@ const float OS_z = 0.005;               // %
 const float zeta_z = abs(log(OS_z))/sqrt(pow(log(OS_z),2)+pow(pi,2));
 const float omega_n_z = 4.0/(Ts_z*zeta_z);
 const float kp_z = pow(omega_n_z,2.0);       
-const float kd_z = 2.0*zeta_z*omega_n_z; 
+const float kd_z = 2.0*zeta_z*omega_n_z;
+
+// horizontal estimator
+const float gamma = 42.0;               // º
+const float resolution = 420.0;         // px
+const float sigma = (1.0/dt)*(2.0*tan((gamma*pi/180.0)/2.0))/resolution; 
+
+const float omega_c_hor = 50.0;         // rad/s 
 
 #endif
