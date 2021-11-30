@@ -63,4 +63,14 @@ const float sigma = (1.0/dt)*(2.0*tan((gamma*pi/180.0)/2.0))/resolution;
 
 const float omega_c_hor = 50.0;         // rad/s 
 
+// horizontal controller
+const float Ts_x = 2.0;                 // s
+const float OS_x = 0.005;               // %
+const float zeta_x = abs(log(OS_x))/sqrt(pow(log(OS_x),2)+pow(pi,2));
+const float omega_n_x = 4.0/(Ts_x*zeta_x);
+const float kp_x = pow(omega_n_x,2.0);       
+const float kd_x = 2.0*zeta_x*omega_n_x; 
+const float kp_y = kp_x;       
+const float kd_y = kd_x; 
+
 #endif
