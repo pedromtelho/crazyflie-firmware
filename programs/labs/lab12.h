@@ -24,7 +24,7 @@ void callback_range() { flag_range = true; }
 int main()
 {
     // Set references
-    float z_r = 0.5;
+    float z_r = 0.8;
     float x_r = 0.0;
     float y_r = 0.0;
     float psi_r = 0.0;
@@ -42,7 +42,7 @@ int main()
         if (flag)
         {
             flag = false;
-            att_est.estimate ();
+            att_est.estimate();
             ver_est.predict(ver_cont.f_t);
             if (flag_range)
             {
@@ -55,9 +55,10 @@ int main()
                 hor_est.correct(att_est.phi, att_est.theta, att_est.p, att_est.q, ver_est.z);
                 hor_cont.control(x_r, y_r, hor_est.x, hor_est.y, hor_est.u, hor_est.v);
             }
-            ver_cont.control(z_r ,ver_est.z,ver_est.w);
-            att_cont.control(hor_cont.phi_r ,hor_cont.theta_r ,psi_r ,att_est.phi, att_est.theta ,att_est.psi ,att_est.p,att_est.q,att_est.r);
+            ver_cont.control(z_r, ver_est.z, ver_est.w);
+            att_cont.control(hor_cont.phi_r, hor_cont.theta_r, psi_r, att_est.phi, att_est.theta, att_est.psi, att_est.p, att_est.q, att_est.r);
             mixer.actuate(ver_cont.f_t/(cos(att_est.phi)*cos(att_est.theta)), att_cont.tau_phi ,att_cont.tau_theta ,att_cont.tau_psi);
+            
         }
     }
     // Disarm motors and end program

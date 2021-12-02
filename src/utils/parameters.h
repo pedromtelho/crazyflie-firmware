@@ -9,10 +9,10 @@ const float dt_range = 0.05;
 const float pi = 3.1416;
 const float g = 9.81;       // m/s^2
 
-const float a2 = pow(1.16, -7.0); // (Ra * kd)/(Km * es)
-const float a1 = pow(4.488, -12.0); // (Ra * b + Km^2)/(Km * es)
-const float kl = pow(1.726, -8.0); // constante de sustentação
-const float kd = pow(1.415, -10.0); // constante de arrasto
+const float a2 = 1.16e-7; // (Ra * kd)/(Km * es)
+const float a1 = 4.488e-12; // (Ra * b + Km^2)/(Km * es)
+const float kl = 1.726e-8; // constante de sustentação
+const float kd = 1.415e-10; // constante de arrasto
 
 // Quadcopter dimensions
 const float m = 30.0e-3;    // kg
